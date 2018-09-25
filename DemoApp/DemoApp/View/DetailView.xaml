@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:Class="DemoApp.View.DetailView"
+             xmlns:vm="clr-namespace:DemoApp.ViewModel"
+             Title="Detail View" BackgroundImage="img_bg">
+
+    <ContentPage.BindingContext>
+        <vm:DetailViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="5" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Text="Name :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Location :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Location}" VerticalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Wind :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="{Binding Wind}" VerticalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Weather :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="3" Grid.Column="1" Text="{Binding Weather}" VerticalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="White"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Text="Temparature :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="4" Grid.Column="1" Text="{Binding Temp}" FontSize="14" FontAttributes="Bold" TextColor="White" LineBreakMode="WordWrap"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="Pressure :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="5" Grid.Column="1" Text="{Binding Pressure}" VerticalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="White" LineBreakMode="WordWrap"/>
+
+            <Label Grid.Row="6" Grid.Column="0" Text="Humidity :" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" TextColor="White"/>
+            <Label Grid.Row="6" Grid.Column="1" Text="{Binding Humidity}" VerticalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="White" LineBreakMode="WordWrap"/>
+
+            <StackLayout Grid.Row="7" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+                <maps:Map x:Name="MyMap" IsShowingUser="true" MapType="Street" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
